@@ -1,0 +1,4 @@
+interface:
+  display_name: "苏博晨中国工科论文助手"
+  short_description: "面向中国高校工科本科论文的选题、实验、写作、引用与终审"
+  default_prompt: "请使用 $bochen-cn-engineering-paper 帮我推进当前毕业论文阶段，并严格核对证据与学校规范。"

@@ -1,6 +1,6 @@
 # Bochen AI Skills
 
-为bochen长期使用而设计的模块化私人 AI Skill 系统，覆盖日常回答、大学课程、代码算法、AI 数学、考试、学术写作、资料核验和技术操作。
+为苏博晨长期使用而设计的模块化私人 AI Skill 系统，覆盖日常回答、大学课程、代码算法、AI 数学、考试、学术写作、毕业论文、资料核验和技术操作。
 
 ## 设计目标
 
@@ -21,7 +21,9 @@ bochen-ai-skills/
 │   ├── bochen-code-algorithm-tutor/
 │   ├── bochen-ai-math-tutor/
 │   └── bochen-exam-master/
-├── academic/bochen-academic-writer/
+├── academic/
+│   ├── bochen-academic-writer/
+│   └── bochen-cn-engineering-paper/
 ├── research/bochen-research-verifier/
 ├── utility/bochen-tech-guide/
 ├── meta/bochen-skill-builder/
@@ -40,6 +42,7 @@ bochen-ai-skills/
 | `bochen-ai-math-tutor` | 数学与 ML/DL/NLP/CV/RL/LLM 的连接 | 一般编程语法、考试时间规划 |
 | `bochen-exam-master` | 提分策略、重点、错题、模拟题、开卷资料 | 无考试目标的长期学习 |
 | `bochen-academic-writer` | 论文、报告、综述的写作、审阅与核查 | 独立事实检索 |
+| `bochen-cn-engineering-paper` | 中国工科本科毕设的选题、研究、实验、写作、终审与答辩 | 普通课程短论文、虚构研究材料 |
 | `bochen-research-verifier` | 最新资料、事实核验、模型和产品比较 | 普通稳定知识讲解 |
 | `bochen-tech-guide` | 软件、设备、GitHub、IDE 和环境排障 | 算法与学术写作 |
 | `bochen-skill-builder` | 新 Skill 的设计、测试、打包和维护 | 一次性短提示 |
@@ -52,6 +55,7 @@ bochen-ai-skills/
 - 算法考试：`answer-style + code-algorithm-tutor + exam-master`
 - 机器学习考试：`answer-style + ai-math-tutor + exam-master`
 - 课程论文：`answer-style + academic-writer + research-verifier`
+- 工科毕业论文：`answer-style + cn-engineering-paper + research-verifier`
 
 通常只需要一个全局 Skill 和一个专项 Skill。只有任务确实跨越学习、专项内容和考试时才同时启用三个，避免上下文膨胀。
 
@@ -75,6 +79,7 @@ skill-name/
 - 触发信息集中在 frontmatter `description`
 - 公共风格集中在 `bochen-answer-style`，专项 Skill 不重复堆叠
 - 学术和研究 Skill 禁止编造文献、数据、实验与引用
+- 工科论文 Skill 内置北交大规范优先级、研究证据门槛、审计脚本与真实场景测试
 - 技术 Skill 对删除、覆盖、权限和凭据设置安全边界
 
 设计依据与同类 Skill 对标见 [`docs/DESIGN-RESEARCH.md`](docs/DESIGN-RESEARCH.md)，组合示例见 [`examples/COMBINATIONS.md`](examples/COMBINATIONS.md)。
