@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨考试教练"
+  short_description: "根据考试范围规划复习、提炼重点、分析错题并生成模拟练习"
+  default_prompt: "请使用 $bochen-exam-master 帮我高效复习这门课。"

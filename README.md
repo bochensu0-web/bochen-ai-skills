@@ -1,5 +1,7 @@
 # Bochen AI Skills
 
+[![CI](https://github.com/bochensu0-web/bochen-ai-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/bochensu0-web/bochen-ai-skills/actions/workflows/ci.yml)
+
 为苏博晨长期使用而设计的模块化私人 AI Skill 系统，覆盖日常回答、大学课程、代码算法、AI 数学、考试、学术写作、毕业论文、资料核验和技术操作。
 
 ## 设计目标
@@ -9,7 +11,7 @@
 - 面向基础可能薄弱、但希望真正理解并独立完成任务的大学 AI 学生
 - 简单问题简答，复杂问题按直觉、机制、例子、练习与检查逐步深入
 - 可以组合使用，同时避免重复规则、触发过宽和职责冲突
-- 使用标准 `SKILL.md` 与 `agents/openai.yaml`，适合长期版本管理
+- 使用标准 `SKILL.md` 与 `agents/openai.yaml`，兼容 Antigravity、Codex、Claude Code 等客户端
 
 ## 目录
 
@@ -27,6 +29,10 @@ bochen-ai-skills/
 ├── research/bochen-research-verifier/
 ├── utility/bochen-tech-guide/
 ├── meta/bochen-skill-builder/
+├── scripts/
+│   ├── install_skills.py
+│   └── package_skills.py
+├── tests/
 ├── examples/
 ├── evals/
 └── docs/
@@ -41,7 +47,7 @@ bochen-ai-skills/
 | `bochen-code-algorithm-tutor` | C++、Python、数据结构、算法、LeetCode、Debug | 纯数学推导、软件安装 |
 | `bochen-ai-math-tutor` | 数学与 ML/DL/NLP/CV/RL/LLM 的连接 | 一般编程语法、考试时间规划 |
 | `bochen-exam-master` | 提分策略、重点、错题、模拟题、开卷资料 | 无考试目标的长期学习 |
-| `bochen-academic-writer` | 论文、报告、综述的写作、审阅与核查 | 独立事实检索 |
+| `bochen-academic-writer` | 论文、报告、综述的写作、审阅与核查 | 独立事实检索、工科本科毕设全流程 |
 | `bochen-cn-engineering-paper` | 中国工科本科毕设的选题、研究、实验、写作、终审与答辩 | 普通课程短论文、虚构研究材料 |
 | `bochen-research-verifier` | 最新资料、事实核验、模型和产品比较 | 普通稳定知识讲解 |
 | `bochen-tech-guide` | 软件、设备、GitHub、IDE 和环境排障 | 算法与学术写作 |
@@ -61,9 +67,26 @@ bochen-ai-skills/
 
 ## 安装
 
-将需要的 Skill 文件夹复制到 Agent 支持的 skills 目录。例如 Codex 常用 `.codex/skills/`，其他兼容客户端可能使用 `.agents/skills/`、`.github/skills/` 或自己的用户级目录。
+### 一键脚本安装（推荐）
 
-每个 Skill 都可独立安装：
+支持直接安装到 **Antigravity**（`~/.gemini/config/skills`）、**Codex**（`~/.codex/skills`）、**Claude Code**（`~/.claude/skills`）或项目级 `.agents/skills`：
+
+```bash
+# 查看全部可用 Skill
+python scripts/install_skills.py --list
+
+# 安装全部 10 个 Skill 到 Antigravity / Codex / Claude Code
+python scripts/install_skills.py --client antigravity
+python scripts/install_skills.py --client codex
+python scripts/install_skills.py --client claude
+
+# 只安装指定子集到自定义目录
+python scripts/install_skills.py --target ./.agents/skills --skills bochen-answer-style bochen-code-algorithm-tutor
+```
+
+### 手动安装
+
+每个 Skill 均可独立复制安装：
 
 ```text
 skill-name/
@@ -72,14 +95,30 @@ skill-name/
 └── agents/openai.yaml
 ```
 
+## 校验与打包
+
+```bash
+# 全套结构、编码、链接、触发矩阵与评测集校验
+python -m unittest discover -s tests -p "test_*.py" -v
+
+# 中国工科毕业论文 Skill 审计脚本与场景测试
+python -m unittest discover -s academic/bochen-cn-engineering-paper/tests -p "test_*.py" -v
+
+# 重新生成不含 .git / 缓存文件的干净发行 ZIP
+python scripts/package_skills.py
+```
+
 ## 质量保证
 
-- 所有 Skill 通过基础结构与 YAML 校验
-- 核心 Skill 包含真实任务 eval 与相邻领域负样本
-- 触发信息集中在 frontmatter `description`
-- 公共风格集中在 `bochen-answer-style`，专项 Skill 不重复堆叠
+- 全部 10 个 Skill 通过目录结构、YAML frontmatter、UTF-8 编码与本地链接完整性自动化测试
+- 每个 Skill 均配备 `evals/*.json` 真实任务与相邻领域负样本，以及统一的 [`evals/TRIGGER-MATRIX.md`](evals/TRIGGER-MATRIX.md)
+- 触发信息集中在 frontmatter `description`；公共风格集中在 `bochen-answer-style`，专项 Skill 不重复堆叠
 - 学术和研究 Skill 禁止编造文献、数据、实验与引用
-- 工科论文 Skill 内置北交大规范优先级、研究证据门槛、审计脚本与真实场景测试
+- 工科论文 Skill 内置北交大规范优先级、研究证据门槛、四个确定性只读审计脚本与真实场景测试
 - 技术 Skill 对删除、覆盖、权限和凭据设置安全边界
 
 设计依据与同类 Skill 对标见 [`docs/DESIGN-RESEARCH.md`](docs/DESIGN-RESEARCH.md)，组合示例见 [`examples/COMBINATIONS.md`](examples/COMBINATIONS.md)。
+
+## License
+
+MIT — 见 [`LICENSE`](LICENSE)。

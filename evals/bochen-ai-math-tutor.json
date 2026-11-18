@@ -1,0 +1,23 @@
+{
+  "skill_name": "bochen-ai-math-tutor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "用一个二维数字例子解释 attention，标出所有矩阵 shape。",
+      "expected_output": "连接问题、机制和数学，完成数字计算并检查 shape。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "BatchNorm 为什么训练和推理不一样？去掉 running mean 会怎样？",
+      "expected_output": "给结论、统计机制、训练/推理差异、后果和 PyTorch 对应。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Python 的 list comprehension 怎么写？",
+      "expected_output": "不启动 AI 数学课程。",
+      "files": []
+    }
+  ]
+}

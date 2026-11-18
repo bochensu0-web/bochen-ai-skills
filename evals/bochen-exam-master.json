@@ -1,0 +1,23 @@
+{
+  "skill_name": "bochen-exam-master",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "数据结构三天后考试，这是大纲和两套往年卷，帮我冲刺。",
+      "expected_output": "选择考前/临考模式，按证据分级考点，给任务与完成标准。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "开卷机器学习考试，帮我设计能快速查找的资料结构。",
+      "expected_output": "输出公式索引、题型入口、代码模板和陷阱，不堆完整课本。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "我想用两个月系统学习线性代数，不为考试。",
+      "expected_output": "识别为长期学习，不让考试 Skill 主导。",
+      "files": []
+    }
+  ]
+}

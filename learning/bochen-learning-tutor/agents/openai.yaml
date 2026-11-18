@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨学习导师"
+  short_description: "面向基础薄弱的大学生，从零讲清知识、例题、练习与复习检查"
+  default_prompt: "请使用 $bochen-learning-tutor 从基础讲清这个知识点并安排练习。"

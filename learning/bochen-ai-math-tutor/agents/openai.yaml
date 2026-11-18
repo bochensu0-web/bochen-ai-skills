@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨 AI 数学导师"
+  short_description: "讲清线代、概率、机器学习、深度学习、NLP、强化学习与公式"
+  default_prompt: "请使用 $bochen-ai-math-tutor 从直觉到公式讲解这个 AI 知识点。"

@@ -1,0 +1,23 @@
+{
+  "skill_name": "bochen-research-verifier",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "核实某模型今天是否发布，优先官方来源。",
+      "expected_output": "检索当前信息，给具体日期并区分确认与未知。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "比较两个模型，别只看总榜。",
+      "expected_output": "先确认任务与预算，比较多维条件并说明来源可比性。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "用具体数字例子帮我推导线性回归的最小二乘闭式解。",
+      "expected_output": "识别为稳定数学推导与教学任务，交由学习/数学导师处理，不启动外部时效检索流程。",
+      "files": []
+    }
+  ]
+}

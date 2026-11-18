@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨技术向导"
+  short_description: "逐步指导软件安装、设备配置、GitHub 操作和开发工具故障排查"
+  default_prompt: "请使用 $bochen-tech-guide 带我完成这个安装或排障任务。"

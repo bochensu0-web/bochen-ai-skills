@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Run suite integrity tests
+        run: python -m unittest discover -s tests -p "test_*.py" -v
+      - name: Run Chinese engineering paper skill tests
+        run: python -m unittest discover -s academic/bochen-cn-engineering-paper/tests -p "test_*.py" -v
+      - name: Dry-run multi-client installer
+        run: python scripts/install_skills.py --list && python scripts/install_skills.py --client antigravity --dry-run

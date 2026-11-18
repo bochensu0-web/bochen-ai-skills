@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨回答风格"
+  short_description: "控制中文回答的语言、篇幅、结构、自然度与结论优先表达方式"
+  default_prompt: "请使用 $bochen-answer-style 以自然、结论优先的中文回答这个问题。"

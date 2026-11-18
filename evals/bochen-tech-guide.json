@@ -1,0 +1,23 @@
+{
+  "skill_name": "bochen-tech-guide",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "看这张 GitHub 创建仓库截图，下一步点哪里？",
+      "expected_output": "依据截图只给当前动作和成功标志。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "CUDA 安装失败，日志提示版本不兼容。",
+      "expected_output": "先核对系统、GPU、驱动和工具链版本，再给可恢复步骤。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "证明 Dijkstra 算法在非负权图上的贪心选择性质。",
+      "expected_output": "识别为算法正确性证明，交由 bochen-code-algorithm-tutor 处理，不套用软件安装排障流程。",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨学术写作助手"
+  short_description: "协助论文、课程报告和文献综述的结构、论证、引用与自然表达"
+  default_prompt: "请使用 $bochen-academic-writer 帮我完善这份学术写作任务。"

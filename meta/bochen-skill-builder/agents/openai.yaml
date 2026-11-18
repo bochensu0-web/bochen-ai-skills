@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨 Skill 构建器"
+  short_description: "按照 Agent Skills 规范设计、优化、验证并维护个人技能包"
+  default_prompt: "请使用 $bochen-skill-builder 帮我创建或改进这个 Skill。"

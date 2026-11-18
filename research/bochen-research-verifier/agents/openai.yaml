@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨研究核验助手"
+  short_description: "检索最新可靠资料、交叉核验事实、比较模型并标注证据边界"
+  default_prompt: "请使用 $bochen-research-verifier 调研并核验这个问题。"

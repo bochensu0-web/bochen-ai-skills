@@ -1,0 +1,23 @@
+{
+  "skill_name": "bochen-code-algorithm-tutor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "讲解最长递增子序列，重点说 O(n log n) 是怎么从 O(n²) 想到的。",
+      "expected_output": "从暴力瓶颈推导优化线索，小数据手推，C++ 实现和复杂度。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "这段 C++ 用 vector erase 后崩溃，帮我找原因。",
+      "expected_output": "定位迭代器失效，给最小修复和防回归测试，不写完整算法课。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "证明交叉熵来自最大似然。",
+      "expected_output": "识别为 AI 数学任务，不让算法 Skill 主导。",
+      "files": []
+    }
+  ]
+}

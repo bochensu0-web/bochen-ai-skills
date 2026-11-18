@@ -1,0 +1,23 @@
+{
+  "skill_name": "bochen-answer-style",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "这两款电脑哪个更适合跑本地小模型？直接推荐，别写成报告。",
+      "expected_output": "先推荐并给决定性原因；篇幅紧凑；需要当前规格时先核实。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "一句话解释什么是过拟合。",
+      "expected_output": "一句自然中文解释，不扩展成长教程。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "请按学校公文格式写一份通知。",
+      "expected_output": "服从公文格式，不强行套日常回答风格。",
+      "files": []
+    }
+  ]
+}

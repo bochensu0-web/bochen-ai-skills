@@ -1,0 +1,23 @@
+{
+  "skill_name": "bochen-learning-tutor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我概率基础很差，为什么独立不等于互斥？请从例子讲。",
+      "expected_output": "先给结论，最小前置知识，正反例和理解检查。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "我大概懂梯度了，为什么学习率太大会震荡？",
+      "expected_output": "跳过梯度基础，直接用局部曲面或数字例子回答增量问题。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "这段代码空指针了，帮我直接修。",
+      "expected_output": "识别为调试任务，不启动完整学习课程。",
+      "files": []
+    }
+  ]
+}
