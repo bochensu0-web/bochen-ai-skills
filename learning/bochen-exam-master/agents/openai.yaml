@@ -1,4 +1,4 @@
 interface:
-  display_name: "博晨考试教练"
-  short_description: "根据考试范围规划复习、提炼重点、分析错题并生成模拟练习"
-  default_prompt: "请使用 $bochen-exam-master 帮我高效复习这门课。"
+  display_name: "博晨大学考试提分教练"
+  short_description: "按单位时间得分规划期末冲刺、往年卷题型拆解、步骤分抢分与开卷速查表"
+  default_prompt: "请使用 $bochen-exam-master 根据我的剩余时间和考试材料制定最高得分效率的复习与步骤分方案。"

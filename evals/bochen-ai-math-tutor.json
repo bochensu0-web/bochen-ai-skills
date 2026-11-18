@@ -3,20 +3,26 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "用一个二维数字例子解释 attention，标出所有矩阵 shape。",
-      "expected_output": "连接问题、机制和数学，完成数字计算并检查 shape。",
+      "prompt": "看西瓜书时列向量 w^T x 和 PyTorch nn.Linear 的矩阵形状总是转置打架，再用二维数字例子讲一下 Self-Attention 为什么除根号 d_k。",
+      "expected_output": "先对齐西瓜书单样本列向量与 PyTorch [B, D] 行排布约定，手算 L=2, d_k=2 数字例子说明方差放大导致 Softmax 梯度消失，附带 shape 注释代码。",
       "files": []
     },
     {
       "id": 2,
-      "prompt": "BatchNorm 为什么训练和推理不一样？去掉 running mean 会怎样？",
-      "expected_output": "给结论、统计机制、训练/推理差异、后果和 PyTorch 对应。",
+      "prompt": "BatchNorm、LayerNorm 和大模型用的 RMSNorm 分别沿哪个维度归一化？推理忘调 model.eval() 会怎样？",
+      "expected_output": "基于 [B, L, D] 张量对比归一化轴，解释 running_mean/var 在训练与推理的差异及忘记 eval() 导致的预测抖动后果。",
       "files": []
     },
     {
       "id": 3,
-      "prompt": "Python 的 list comprehension 怎么写？",
-      "expected_output": "不启动 AI 数学课程。",
+      "prompt": "我手写 MSE 损失 ((pred - y) ** 2).mean() 不报错但模型完全不收敛，pred 是 [32, 1]，y 是 [32]。",
+      "expected_output": "精准抓出 [32, 1] 与 [32] 隐式广播成 [32, 32] 的 PyTorch 静默陷阱，给出 squeeze/shape 断言修复。",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "我在 Windows 笔记本上装完 PyTorch 后 cuda.is_available() 是 False，怎么配国内源重装？",
+      "expected_output": "识别为本地 CUDA 与镜像安装排障，转交 bochen-tech-guide 分步指导。",
       "files": []
     }
   ]

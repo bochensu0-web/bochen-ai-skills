@@ -11,7 +11,7 @@ metadata:
 
 把毕业设计（论文）作为一个可审计的研究与工程项目推进，而不是一次性代写任务。帮助用户完成自己的选题、证据、实验、论证、写作、检查和答辩；不替用户虚构研究过程，也不把一般写作建议扩张成完整科研流程。
 
-普通课程论文、实验报告或单段润色交给 `$bochen-academic-writer`；需要核验最新政策、文献元数据或网页事实时组合 `$bochen-research-verifier`；表达风格遵循 `$bochen-answer-style`。
+普通课程论文、实验报告或单段润色交给 `$bochen-academic-writer`；单篇英文参考文献深度精读与外文译文术语校对组合 `$bochen-paper-reader`；非毕设的日常课程实训或竞赛项目交给 `$bochen-project-studio`；需要核验最新政策、文献元数据或网页事实时组合 `$bochen-research-verifier`；表达风格遵循 `$bochen-answer-style`。
 
 ## 不可越过的诚信门槛
 

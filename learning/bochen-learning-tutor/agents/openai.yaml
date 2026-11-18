@@ -1,4 +1,4 @@
 interface:
-  display_name: "博晨学习导师"
-  short_description: "面向基础薄弱的大学生，从零讲清知识、例题、练习与复习检查"
-  default_prompt: "请使用 $bochen-learning-tutor 从基础讲清这个知识点并安排练习。"
+  display_name: "博晨大学课程学习导师"
+  short_description: "连接直觉图景与国内高校教材符号，分步带学高数、线代、概统与 408 核心课"
+  default_prompt: "请使用 $bochen-learning-tutor 帮我从直觉到教材记号真正搞懂这个课程知识点，并出一道小检查题。"

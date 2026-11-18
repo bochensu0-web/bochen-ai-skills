@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨课设实训与科创工作坊"
+  short_description: "规划课程大作业、多人联调接口契约、现场演示防翻车及大创/数模竞赛方案"
+  default_prompt: "请使用 $bochen-project-studio 帮我收敛这个项目的可交付 MVP、分工接口与验收防翻车方案。"

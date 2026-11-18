@@ -3,20 +3,26 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "这两款电脑哪个更适合跑本地小模型？直接推荐，别写成报告。",
-      "expected_output": "先推荐并给决定性原因；篇幅紧凑；需要当前规格时先核实。",
+      "prompt": "本地做课程实训小项目，SQLite 和 PostgreSQL 选哪个？直接推荐，别写成报告。",
+      "expected_output": "首句直接给推荐（单机小项目选 SQLite）与核心原因，说明何时再切 PostgreSQL，无寒暄与套话尾句。",
       "files": []
     },
     {
       "id": 2,
-      "prompt": "一句话解释什么是过拟合。",
-      "expected_output": "一句自然中文解释，不扩展成长教程。",
+      "prompt": "一句话解释什么是过拟合，别堆砌术语。",
+      "expected_output": "用一两句自然中文白话点破“把训练样本偶然噪声背下来导致新题不会做”，不展开长篇教程。",
       "files": []
     },
     {
       "id": 3,
-      "prompt": "请按学校公文格式写一份通知。",
-      "expected_output": "服从公文格式，不强行套日常回答风格。",
+      "prompt": "为什么大模型推理要用 KV Cache？注意别把 token 翻成令牌、vanilla 翻成香草。",
+      "expected_output": "保留 KV Cache、token、Causal Mask 等国内 CS/AI 通用原词，消除翻译腔，讲清用显存换省去历史 K/V 重复计算的机制。",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "请按学院教务通知格式拟一份本周五下午本科毕设中期检查通知。",
+      "expected_output": "优先服从正式通知文体与结构，保留明确待填占位符，不强行改成日常口语。",
       "files": []
     }
   ]

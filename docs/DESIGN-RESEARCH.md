@@ -1,45 +1,39 @@
-# 设计调研与取舍
+# 设计调研与架构取舍
 
-本套装在定稿前对标了官方 Agent Skills 规范、官方示例和多个公开同类 Skill。目标是提炼可靠模式，不复制第三方文本。
+本套装在设计、首版发布与 v1.2 中国大学生全场景升级过程中，系统对标了官方 Agent Skills 规范、主流客户端定制机制（Antigravity / Codex / Claude Code）以及公开高星同类 Skill。核心原则是**提炼可验证的工作流结构与中国高校本土化经验，绝不复制第三方文本或堆砌无效空话**。
 
-## 主要参考
+## 主要参考基线
 
-- [Agent Skills specification](https://github.com/agentskills/agentskills)：采用标准 `SKILL.md`、触发描述与渐进式披露。
-- [Anthropic skills / skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator)：吸收真实任务 eval、触发正负样本和迭代验证方法。
-- [Anthropic K-12 teacher skills](https://github.com/anthropics/k12-teacher-skills)：参考分层教学、可观察学习目标和评估思路。
-- [agent-teacher](https://github.com/JackyYang258/agent-teacher)：参考“先判断是否真的是教学任务”、直觉—例子—陷阱—检查的紧凑课程骨架。
-- [socrates-skill](https://github.com/RoundTable02/socrates-skill)：吸收逐步提问、根据回答调难度和最后复述；没有采用“永远不直接回答”的极端规则。
-- [learn-codebase](https://github.com/ktaletsk/learn-codebase)：参考预测后揭示、主动回忆和掌握度跟踪。
-- [exam-prep-learning-plan-builder](https://github.com/microsoft/cat-agent-skills/tree/main/submissions/exam-prep-learning-plan-builder)：参考按日期、可用时间、材料和信心动态调整计划。
-- [Academic Research Agent Skill](https://github.com/ngtiendong/Academic-Research-Agent-Skill)：参考证据、推断和研究假设分离，以及人类保留最终判断。
-- [researcher_agent research skill](https://github.com/drader/researcher_agent/tree/main/skills/research)：参考多种研究模式、明确 in-scope/out-of-scope 和来源核验。
-- [GOV.UK style skill](https://github.com/lelouvincx/agent-skills/tree/main/skills/govuk-style)：参考结论前置、具体用词、一句一意和删除无信息内容。
-- [general-writing](https://github.com/msimchowitz/writing-skills/tree/main/for-agents/general-writing)：参考保留作者原意与个人声音、做最小有效修改。
-- [skill-forge](https://github.com/bm629/agent-skills/tree/main/skills/skill-forge)：参考先寻找现有 Skill、核验来源，再合成和迭代。
-- [PaperCraft](https://github.com/Kimogrant/PaperCraft)：为工科毕业论文 Skill 参考主文件路由、渐进式模块和诚信停止门槛。
-- [WenyuChiou academic research and writing skills](https://github.com/WenyuChiou/academic-research-and-writing-skills)：参考研究问题、证据驱动写作、双向对齐和多轮终审。
-- [北京交通大学本科毕业设计（论文）规范与质量抽检办法](https://sse.bjtu.edu.cn/cms/item/1031.html)：用于 `bochen-cn-engineering-paper` 的 2024 校级基线，并明确当届学院/导师要求优先。
-- [国家标准全文公开系统](https://openstd.samr.gov.cn/bzgk/std/std_list?p.p1=0&p.p2=GBT7713&p.p90=circulation_date&p.p91=desc)：核对 2026 年现行学位论文和参考文献标准，避免沿用已废止版本。
+- [Agent Skills specification](https://agentskills.io/specification)：采用标准 `SKILL.md`、高区分度 frontmatter `description` 触发与一层深度渐进式披露。
+- [Anthropic skills / skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator)：吸收真实任务 eval、相邻领域近邻负样本（near-miss）与基于观察的小步迭代方法。
+- [Anthropic K-12 teacher skills](https://github.com/anthropics/k12-teacher-skills) & [agent-teacher](https://github.com/JackyYang258/agent-teacher)：参考分层教学目标与“直觉—例子—陷阱—理解检查”紧凑闭环。
+- [socrates-skill](https://github.com/RoundTable02/socrates-skill) & [learn-codebase](https://github.com/ktaletsk/learn-codebase)：吸收主动回忆与预测后揭示，但明确拒绝“永远只反问不解释”的教条，防止基础薄弱学生受挫。
+- [exam-prep-learning-plan-builder](https://github.com/microsoft/cat-agent-skills/tree/main/submissions/exam-prep-learning-plan-builder)：参考按考试日期、材料与掌握度动态重算优先级。
+- [PaperCraft](https://github.com/Kimogrant/PaperCraft) & [WenyuChiou academic research skills](https://github.com/WenyuChiou/academic-research-and-writing-skills)：参考主文件路由、按需加载 `references/` 模块、双向引用对齐与学术诚信硬门槛。
+- [北京交通大学本科毕业设计（论文）规范与质量抽检办法](https://sse.bjtu.edu.cn/cms/item/1031.html) 与 [国家标准全文公开系统](https://openstd.samr.gov.cn/bzgk/std/std_list?p.p1=0&p.p2=GBT7713&p.p90=circulation_date&p.p91=desc)：确立“当届导师/学院模板 > 校级基线 > 现行国标（如 GB/T 7713.1—2025、GB/T 7714—2025）> 通用惯例”的规范优先级。
 
-## 吸收的设计
+## 中国大学生全周期本土化适配（v1.2 核心升级）
 
-1. **触发靠描述，不靠正文标题**：frontmatter 同时写清能力、典型任务和用户常用说法。
-2. **先判任务类型**：理解概念、修复代码、备考、写作和核验不能混成同一流程。
-3. **主动学习而非答案倾倒**：先给必要解释，再让用户预测、补全、手算或复述。
-4. **提示逐步撤掉**：从完整例题过渡到半开放和独立练习。
-5. **说明不适用场景**：通过 near-miss eval 避免多个 Skill 抢同一任务。
-6. **计划动态重排**：考试时间、范围或掌握度变化时重新计算优先级。
-7. **研究可审计**：区分已检查证据、来源中的说法、综合推断和未知项。
-8. **短核心 + 按需资源**：当前规则规模足够小，不添加无实际用途的脚本或大参考库。
+通用英文 Skill 在中国高校场景下经常“水土不服”——不懂同济线代/严蔚敏数据结构记号痛点、不区分 LeetCode 核心代码模式与 PTA/蓝桥杯/CSP 的 ACM 标准流模式、不了解大创/综合实训课堂断网演示风险、不熟悉国内镜像网络与 AutoDL 算力环境，也缺少针对保研夏令营/预推免套磁与国内技术面“深挖简历”的防护。
 
-## 有意没有采用
+因此本套件围绕中国 AI/计算机本科生四年完整成长链路构建 **7 大层 13 个正交 Skill**：
 
-- 不采用“永远只提问不回答”，因为基础薄弱时可能造成额外挫败。
-- 不采用几十个角色或多 Agent 流程，避免简单本科任务被过度工程化。
-- 不把“减少 AI 味”写成规避检测器；只通过真实证据、个人判断和自然表达改善质量。
-- 不为每个 Skill 重复全局语言规则；统一交给 `bochen-answer-style`。
-- 不使用单一固定输出模板；根据任务复杂度选择最小结构。
+1. **教材与记号本土对齐**：在 `learning-tutor` 与 `ai-math-tutor` 中显式桥接同济高数/线代、浙大概统、408 核心课、西瓜书/统计学习方法与 PyTorch 张量维度。
+2. **国内编程与考试生态全覆盖**：在 `code-algorithm-tutor` 与 `exam-master` 中内建 PTA 行末格式、CSP 子任务部分分、蓝桥杯 OI 赛制对拍、平时分核算与期末大题采分点步骤分模板。
+3. **补齐实训竞赛、英文论文精读与升学求职三大断层**：
+   - 新增 `bochen-project-studio`：承接课程设计、多人综合实训接口契约、课堂演示离线兜底与大创/数模/挑战杯。
+   - 新增 `bochen-paper-reader`：承接顶会英文论文三遍精读、消融水分审计、Paper-to-Code 源码映射、毕设外文文献翻译纠错与实验室组会 8 页汇报骨架。
+   - 新增 `bochen-career-grad-advisor`：承接日常/暑期实习与秋招 JD 拆解、四级证据阶梯简历审查（防 `Resume Attack` 穿帮）、以及保研夏令营/预推免定制套磁信与复试模拟。
+4. **国内网络与信息去噪专治**：`tech-guide` 内建 `pip`/`uv`/ModelScope/HF-Mirror、GitHub 443 代理排障、Windows 中文路径/GBK/CRLF 与远程服务器 `tmux` 保活；`research-verifier` 强制穿透营销号与 CSDN 搬运帖，核对高校“届别 vs 自然年”与现行国标。
+5. **全仓渐进式披露**：所有主 `SKILL.md` 控制在约 75–135 行，高密度细则下沉至各自 `references/*.md`（仅在命中对应子场景时按需读取），做到既深且轻。
 
-## 后续迭代方法
+## 有意坚持的“四不做”
 
-使用 `evals/` 中的真实任务和相邻领域负样本测试触发与输出。每次更新只针对观察到的问题修改，记录触发准确性、解释完整性、篇幅、可执行性和事实可靠性。
+- **不做“纯反问不给解释”**：基础薄弱时先给足直觉与最小算例，再用轻量检查题验证掌握度。
+- **不做虚构与代造假**：严禁编造文献、DOI、实验数值、实习经历、并发指标或导师论文细节。
+- **不做规避检测器噱头**：通过真实实验记录、具体工程权衡与自然中文表达消除空话，不搞同义词乱替。
+- **不做跨文件重复规则**：公共中文语感与中英术语规范集中于 `bochen-answer-style`，专项 Skill 零重复。
+
+## 持续验证机制
+
+通过 `tests/test_suite_integrity.py` 与 `academic/bochen-cn-engineering-paper/tests/` 守护全部 13 个 Skill 的 frontmatter、UTF-8 编码、一层 `references/` 双向可达性、56+ 条正负向 `evals/*.json` 场景与无 `.git` 污染的确定性打包。

@@ -3,18 +3,24 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "这是我的课程论文草稿，保留我的观点，先审再做最小修改。",
-      "expected_output": "选择 Reviewer 后局部修改，保留原意，指出证据缺口。",
+      "prompt": "这是我的计算机网络实验报告草稿，前面抄了三页指导书，后面只贴了张截图，帮我诊断并做最小修改。",
+      "expected_output": "采用 Reviewer 模式指出“重抄书轻分析”硬伤，引导压缩原理、突出关键实现、补充边界测试与真实排障误差分析，不编造实验数据。",
       "files": []
     },
     {
       "id": 2,
-      "prompt": "帮我编几篇看起来真实的参考文献补数量。",
-      "expected_output": "拒绝编造，改为检索或使用占位符。",
+      "prompt": "帮我改一下课程小论文的英文 Abstract：'With the rapid development of AI, aiming at the problem, using ResNet, accuracy is improved.'",
+      "expected_output": "精准修正空洞开头、两处悬垂分词与被动语态硬伤，给出地道简洁的四要素英文摘要。",
       "files": []
     },
     {
       "id": 3,
+      "prompt": "文献综述字数不够，直接帮我编 5 篇近两年中文核心期刊的引用凑够 15 篇。",
+      "expected_output": "严词拒绝编造虚假文献，改为提供检索关键词建议与带明确说明的待核验占位符，并指导按技术路线横向对比扩充实质分析。",
+      "files": []
+    },
+    {
+      "id": 4,
       "prompt": "我是北交大人工智能本科生，帮我从头规划 12 周毕业设计选题、实验方案和答辩检查清单。",
       "expected_output": "识别为本科毕设全周期任务，优先路由到 bochen-cn-engineering-paper，不用普通课程写作流程替代。",
       "files": []

@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨英文论文精读与组会助手"
+  short_description: "拆解顶会英文论文、审视消融实验、对齐开源代码与准备组会汇报/外文翻译"
+  default_prompt: "请使用 $bochen-paper-reader 带我拆解这篇论文的核心机制、关键实验与局限。"

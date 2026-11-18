@@ -3,20 +3,26 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "看这张 GitHub 创建仓库截图，下一步点哪里？",
-      "expected_output": "依据截图只给当前动作和成功标志。",
+      "prompt": "看这张 GitHub 创建仓库页面截图，我现在下一步点哪里？",
+      "expected_output": "直接指出当前截图上的具体按钮位置和点击后的成功页面标志，不扩展成从零配置 Git 的长篇教程。",
       "files": []
     },
     {
       "id": 2,
-      "prompt": "CUDA 安装失败，日志提示版本不兼容。",
-      "expected_output": "先核对系统、GPU、驱动和工具链版本，再给可恢复步骤。",
+      "prompt": "Windows 笔记本 RTX 4060，pip install torch 装完后 torch.cuda.is_available() 是 False，是不是要把系统重装一遍 CUDA Toolkit？",
+      "expected_output": "先阻止盲目重装系统级 CUDA Toolkit，让用户运行 nvidia-smi 看驱动支持版本，指导在独立 venv 中安装带 cu12x 索引的预编译 wheel 并给验证命令。",
       "files": []
     },
     {
       "id": 3,
+      "prompt": "我在 AutoDL 租卡跑实验，拉 HuggingFace 一直超时，系统盘也快满了，而且一关电脑训练就停，怎么一次性配好？",
+      "expected_output": "分步给出 ModelScope/HF_ENDPOINT 国内加速、将缓存与数据集指向 /root/autodl-tmp 数据盘以及使用 tmux 会话保活的具体命令与预期回显。",
+      "files": []
+    },
+    {
+      "id": 4,
       "prompt": "证明 Dijkstra 算法在非负权图上的贪心选择性质。",
-      "expected_output": "识别为算法正确性证明，交由 bochen-code-algorithm-tutor 处理，不套用软件安装排障流程。",
+      "expected_output": "识别为算法正确性证明，交由 bochen-code-algorithm-tutor 处理，不套用软件排障流程。",
       "files": []
     }
   ]

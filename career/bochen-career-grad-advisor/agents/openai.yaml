@@ -1,0 +1,4 @@
+interface:
+  display_name: "博晨升学保研与求职顾问"
+  short_description: "拆解技术实习 JD、审查简历证据风险、准备深挖面试及规划保研套磁与复试"
+  default_prompt: "请使用 $bochen-career-grad-advisor 按证据感知原则帮我分析求职/保研策略与简历风险，不编造任何经历。"

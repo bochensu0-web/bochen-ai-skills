@@ -3,20 +3,26 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "讲解最长递增子序列，重点说 O(n log n) 是怎么从 O(n²) 想到的。",
-      "expected_output": "从暴力瓶颈推导优化线索，小数据手推，C++ 实现和复杂度。",
+      "prompt": "讲解最长递增子序列，重点说 O(n log n) 是怎么从 O(n^2) 暴力想到的，给适合期末手写的 C++。",
+      "expected_output": "从暴力 DP 转移瓶颈推导出同长度保留最小结尾元素的贪心单调性，用小样例追踪数组，给出清晰易拿步骤分的 C++ 代码。",
       "files": []
     },
     {
       "id": 2,
-      "prompt": "这段 C++ 用 vector erase 后崩溃，帮我找原因。",
-      "expected_output": "定位迭代器失效，给最小修复和防回归测试，不写完整算法课。",
+      "prompt": "我的 PTA 图论题样例过了，但提交提示格式错误且最后一个大点 TLE，帮我排查。",
+      "expected_output": "针对 PTA ACM 模式重点检查行末多余空格、多组测试全量 memset 超时、cin/cout 读写加速与 long long 溢出，给最小修复。",
       "files": []
     },
     {
       "id": 3,
-      "prompt": "证明交叉熵来自最大似然。",
-      "expected_output": "识别为 AI 数学任务，不让算法 Skill 主导。",
+      "prompt": "下周考 CCF CSP，后两道图论/DP 大题如果考场上想不出满分做法怎么拿分？",
+      "expected_output": "讲解读取题面数据规模子任务表（Subtask）、针对链/小 n 分支写保底暴力与特殊性质骗分及本地小数据对拍策略。",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "帮我从最大似然估计推导西瓜书里逻辑回归的对数损失函数。",
+      "expected_output": "识别为机器学习数学推导，路由至 bochen-ai-math-tutor，不套用竞赛算法流程。",
       "files": []
     }
   ]
